@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ThemeProvider } from './components/theme-provider'
 import { createRoot } from 'react-dom/client'
 
 import Dashboard from './pages/dashboard/app'
@@ -9,11 +10,15 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={
-                <Dashboard />
+                <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+                    <Dashboard />
+                </ThemeProvider>
             } />
 
             <Route path="/c" element={
-                <Calendar />
+                <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+                    <Calendar />
+                </ThemeProvider>
             } />
         </Routes>
     </BrowserRouter>
